@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<title>&nbsp;</title>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+		<link rel="stylesheet" href="jquery.mobile-1.3.2.min.css" />
+		<script src="jquery-1.8.2.min.js"></script>
+		<script src="jquery.mobile-1.3.2.min.js"></script>
+		<script type="text/javascript" charset="utf-8" src="cordova.js"></script>
+		<script type="text/javascript" charset="utf-8" src="knockout-3.0.0.js"></script>
+		<script type="text/javascript" src="settings.js"></script>
+		
+	</head>
+	<body>
+		<!-- Start of page -->
+		<div data-role="page" id="pageSettings" data-add-back-btn="true">
+			<script>
+				// Must call this so that we don't get more than one pageinit called.
+				$("#pageSettings").on("pageinit", function() {
+					// Model for calculations and storing data.
+					
+					ko.applyBindings(settingsModel, document.getElementById("pageSettings"));
+				
+					$("#bottomOfBlade").checkboxradio("refresh");
+					$("#topOfBlade").checkboxradio("refresh");
+				});
+			</script>
+			<!-- Header -->
+			<div data-role="header" data-add-back-btn="true">
+				<h1>Settings</h1>
+			</div>
+
+			<!-- Content    -->			
+			<div data-role="content">
+				
+				<fieldset data-role="controlgroup">
+				    <legend>Side of Blade to Measure for Cut List:</legend>
+				        <input type="radio" name="radio-choice-1" id="bottomOfBlade" value="bottom" data-bind="checked: sideOfBlade">
+				        <label for="bottomOfBlade">Bottom or Right of Blade</label>
+				        <input type="radio" name="radio-choice-1" id="topOfBlade" value="top" data-bind="checked: sideOfBlade">
+				        <label for="topOfBlade">Top or Left of Blade</label>
+				</fieldset>
+				
+			</div>
+
+			<!-- footer -->
+			<div data-role="footer">
+				<h4>&copy; 2013 MicaPeak Solutions</h4>
+			</div>
+		</div>
+
+	</body>
+</html>
