@@ -22,7 +22,13 @@ $("#pageCutList").on("pageinit", function() {
 			var currentCut = Number(self.flitch())*16;
 			// Add the flitch cut if necessary
 			if (currentCut > 0){ 
+			    if (settingsModel.sideOfBlade() == 'top') {
+			        currentCut += Number(self.kerf());
+			    }
 				self.cutList.push(textFrom32nd(currentCut, index));
+			    if (settingsModel.sideOfBlade() == 'bottom') {
+			        currentCut += Number(self.kerf());
+			    }
 				index ++;
 			}
 
